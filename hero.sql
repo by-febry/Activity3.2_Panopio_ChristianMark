@@ -152,6 +152,7 @@ VALUES
     (9, 9, 109),  -- Leomord has Blade Armor
     (10, 10, 110);  -- Chou has Feather of Heaven
 
-UPDATE heroes
-SET state = 'inactive'
-WHERE hero_id = 1;
+SELECT P.player_name, H.hero_name
+FROM public.player AS P
+INNER JOIN public.hero AS H ON P.hero_id = H.hero_id
+WHERE H.is_active = true;
