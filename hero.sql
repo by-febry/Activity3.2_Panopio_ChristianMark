@@ -152,7 +152,7 @@ VALUES
     (9, 9, 109),  -- Leomord has Blade Armor
     (10, 10, 110);  -- Chou has Feather of Heaven
 
-SELECT P.player_name, H.hero_name
-FROM public.player AS P
-INNER JOIN public.hero AS H ON P.hero_id = H.hero_id
-WHERE H.is_active = true;
+SELECT H.hero_name
+FROM public.hero AS H
+INNER JOIN public.class AS C ON H.class_id = C.class_id
+WHERE C.class_name = 'Skilled Archers' OR C.class_name = 'Range Archers';
