@@ -151,7 +151,18 @@ VALUES
     (8, 8, 108),  -- Fanny has Thunder Belt
     (9, 9, 109),  -- Leomord has Blade Armor
     (10, 10, 110);  -- Chou has Feather of Heaven
+--3
+ ALTER TABLE item_table
+ ADD item_price DECIMAL(10,2);
+  
+--4
+ UPDATE heroes
+SET state = 'inactive'
+WHERE hero_id = 1;
 
+--5
+DELETE FROM items
+WHERE hero_id = 1;
 SELECT P.player_name, H.hero_name
 FROM public.player AS P
 INNER JOIN public.hero AS H ON P.hero_id = H.hero_id
